@@ -1,0 +1,71 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mr0"
+authors = [{name = "Meituan Robotics"}]
+description = "MR0: A Vision-Language-Action Foundation Model for Desktop Manipulation"
+version = "1.0.1"
+readme = "README.md"
+requires-python = ">=3.10"
+keywords = ["vision-language-actions models", " robotic manipulation", "multimodal pretraining", "robot learning", "generative models"]
+license = {file = "LICENSE"}
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Education",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+"Programming Language :: Python :: 3 :: Only",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dynamic = ["dependencies"]
+
+[project.optional-dependencies]
+dev = [
+    "black>=24.2.0",
+    "gpustat",
+    "ipython",
+    "pre-commit",
+    "pytest>=8",
+    "build",
+    "ruff>=0.2.2",
+]
+sagemaker = [
+    "boto3",
+    "sagemaker"
+]
+
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["mr0*", "deployment*", "examples*"]
+exclude = ["**.__pycache__*"]
+
+[tool.setuptools.package-data]
+mr0 = ["config/**/*.yaml", "model/modules/vlm/tools/add_qwen_special_tokens/fast_tokens.txt"]
+examples = ["**/*.yaml", "**/*.yml", "**/*.json", "**/*.sh", "**/requirements.txt"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.black]
+line-length = 121
+target-version = ["py310"]
+preview = true
+
+[tool.ruff]
+line-length = 121
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["A", "B", "E", "F", "I", "RUF", "W"]
+ignore = ["F722"]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["E402", "F401"]

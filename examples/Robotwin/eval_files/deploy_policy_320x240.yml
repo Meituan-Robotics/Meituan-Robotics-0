@@ -1,0 +1,15 @@
+policy_name: model2robotwin_interface
+task_name: null
+task_config: null
+ckpt_setting: null
+seed: null
+instruction_type: unseen
+
+# MR0 Client Parameters
+host: "127.0.0.1"
+port: 5694
+unnorm_key: "new_embodiment"
+action_mode: "abs"
+normalization_mode: "min_max"  # options: min_max, q99
+use_state: "auto"  # auto reads datasets.vla_data.include_state from checkpoint config
+image_size: [320, 240]
