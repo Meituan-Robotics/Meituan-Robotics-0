@@ -1,0 +1,59 @@
+{
+  "paper": {
+    "version": "2026-10-29",
+    "baselineSnapshot": "2026-10-26",
+    "report": "/Meituan-Robotics-0.pdf?v=20261029"
+  },
+  "data": {
+    "visionLanguageSamples": 147000000,
+    "robotHours": 15060
+  },
+  "robotwin": {
+    "source": "Table 4",
+    "metric": "Overall SR",
+    "unit": "%",
+    "min": 80,
+    "max": 95,
+    "models": [
+      { "label": "ABot-M0", "value": 85.6 },
+      { "label": "Fast-WAM", "value": 91.8 },
+      { "label": "InternVLA-A1.5", "value": 93.2 },
+      { "label": "MR0", "value": 93.6, "highlight": true }
+    ]
+  },
+  "robodojo": {
+    "sources": { "baselines": "Figure 1", "mr0": "Table 5" },
+    "metric": "Average Score",
+    "min": 0,
+    "max": 20,
+    "selectedBaselines": true,
+    "models": [
+      { "label": "VLACT", "value": 10.66 },
+      { "label": "InternVLA-A1.5", "value": 11.15 },
+      { "label": "π0.5", "value": 11.41 },
+      { "label": "Spatial Forcing", "value": 12.38 },
+      { "label": "MR0", "value": 19.68, "highlight": true }
+    ]
+  },
+  "realRobot": {
+    "protocol": "HG-DAgger",
+    "source": "Figure 10",
+    "min": 0.6,
+    "max": 1,
+    "baseline": { "label": "π0.5", "sr": 0.69, "ps": 0.85 },
+    "mr0": { "label": "MR0", "sr": 0.78, "ps": 0.91 }
+  },
+  "ethernetRollback": {
+    "protocol": "Rollback",
+    "source": "Ethernet insertion with the full Rollback set",
+    "min": 0,
+    "max": 1,
+    "baseline": { "label": "RECAP", "sr": 0.6, "ps": 0.67 },
+    "mr0": { "label": "CFG-DAgger", "sr": 0.7, "ps": 0.9 }
+  },
+  "demos": {
+    "letterBlock": { "protocol": "HG-DAgger", "sr": 0.83, "ps": 0.96 },
+    "garment": { "protocol": "HG-DAgger", "sr": 0.83, "ps": 0.93 },
+    "ethernet": { "protocol": "CFG-DAgger", "resultRef": "ethernetRollback.mr0" }
+  }
+}
