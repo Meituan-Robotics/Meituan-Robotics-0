@@ -77,3 +77,16 @@ jobs:
       - name: Deploy GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Verify the published homepage
+        env:
+          PAGE_URL: ${{ steps.deployment.outputs.page_url }}
+        run: |
+          for attempt in {1..30}; do
+            if curl --fail --silent "$PAGE_URL" | grep -q '<title>Meituan-Robotics-0</title>'; then
+              exit 0
+            fi
+            sleep 2
+          done
+          echo "Published page does not contain the MR0 homepage title: $PAGE_URL" >&2
+          exit 1
