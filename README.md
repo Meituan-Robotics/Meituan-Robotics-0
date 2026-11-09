@@ -2,9 +2,8 @@
 <p align="center"><strong>A Vision-Language-Action Foundation Model for Desktop Manipulation</strong></p>
 <p align="center">Meituan Robotics</p>
 
-<!-- Replace the paper destination with the arXiv URL when available. -->
 <p align="center">
-  <a href="#citation-and-acknowledgements" title="Paper link coming soon"><img src="https://img.shields.io/static/v1?label=Paper&amp;message=Technical_Report&amp;color=red&amp;logo=arxiv" alt="Paper: Technical Report"></a>
+  <a href="https://arxiv.org/abs/2611.08577" title="Read the technical report on arXiv"><img src="https://img.shields.io/static/v1?label=Paper&amp;message=Technical_Report&amp;color=red&amp;logo=arxiv" alt="Paper: Technical Report"></a>
   <a href="https://huggingface.co/MeituanRobotics" title="Model weights and datasets on Hugging Face"><img src="https://img.shields.io/static/v1?label=Weights%20%26%20Data&amp;message=HuggingFace&amp;color=yellow&amp;logo=huggingface" alt="Weights &amp; Data: HuggingFace"></a>
   <a href="https://meituan-robotics.github.io/Meituan-Robotics-0/" title="Meituan-Robotics-0 project page"><img src="https://img.shields.io/static/v1?label=Project&amp;message=Page&amp;color=brightgreen&amp;logo=googlechrome" alt="Project Page"></a>
 </p>
@@ -92,7 +91,7 @@ See the [Getting Started guide](GETTING_STARTED.md) for setup and runnable comma
 
 ## 📜 Citation and acknowledgements
 
-The arXiv identifier and final paper BibTeX will be added when available. The project report is titled *Meituan-Robotics-0: A Vision-Language-Action Foundation Model for Desktop Manipulation* (Meituan Robotics Team, 2026).
+Technical report: [*Meituan-Robotics-0: A Vision-Language-Action Foundation Model for Desktop Manipulation*](https://arxiv.org/abs/2611.08577) (Meituan Robotics Team, 2026), arXiv:2611.08577.
 
 MR0 builds on the StarVLA training and deployment stack. For the underlying software, see [CITATION.cff](CITATION.cff). We thank the [StarVLA](https://github.com/starVLA/starVLA), [Qwen](https://github.com/QwenLM), [RoboTwin](https://github.com/RoboTwin-Platform/RoboTwin), and [RoboDojo](https://github.com/RoboDojo-Benchmark/RoboDojo) communities.
 
