@@ -178,7 +178,7 @@ test("server-renders the Meituan-Robotics-0 project page", async () => {
   assert.doesNotMatch(html, /150\.7M VLM samples from 64 sub-datasets/);
   assert.match(html, /Alternative post-training algorithms: HG-DAgger, RECAP, and CFG-DAgger/);
   assert.match(html, /trained anew from the same/);
-  assert.match(html, /Meituan-Robotics-0\.pdf\?v=20261103/);
+  assert.match(html, /href="https:\/\/arxiv\.org\/abs\/2611\.08577"/);
 });
 
 test("keeps the finished site free of starter-preview dependencies", async () => {

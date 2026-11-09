@@ -20,7 +20,8 @@ type VerticalGroup = {
 };
 
 const citationText = `Meituan Robotics Team. “Meituan-Robotics-0: A Vision-Language-Action
-Foundation Model for Desktop Manipulation.” Technical Report, 2026.`;
+Foundation Model for Desktop Manipulation.” arXiv:2611.08577, 2026.
+https://arxiv.org/abs/2611.08577`;
 
 const robotwinMR0 = results.robotwin.models.find((model) => model.highlight)!;
 const robodojoMR0 = results.robodojo.models.find((model) => model.highlight)!;
@@ -122,12 +123,18 @@ export default function Home() {
           A Vision-Language-Action Foundation Model for Desktop Manipulation
         </p>
         <div className="resource-row">
-          <a className="resource primary" href="/Meituan-Robotics-0.pdf?v=20261103">
+          <a className="resource primary" href="https://arxiv.org/abs/2611.08577">
             Technical Report <span aria-hidden="true">↗</span>
           </a>
-          <span className="resource unavailable">Code · Coming soon</span>
-          <span className="resource unavailable">Model · Coming soon</span>
-          <span className="resource unavailable">Dataset · Coming soon</span>
+          <a className="resource" href="https://github.com/Meituan-Robotics/Meituan-Robotics-0">
+            Code <span aria-hidden="true">↗</span>
+          </a>
+          <a className="resource" href="https://huggingface.co/collections/MeituanRobotics/meituan-robotics-0-6aec7de4477b26c5c73b5e2d">
+            Model <span aria-hidden="true">↗</span>
+          </a>
+          <a className="resource" href="https://huggingface.co/datasets/MeituanRobotics/RoboDesk">
+            Dataset <span aria-hidden="true">↗</span>
+          </a>
         </div>
 
         <figure className="hero-demo">
@@ -524,7 +531,7 @@ export default function Home() {
           <CopyCitation text={citationText} />
         </div>
         <div className="citation-resources">
-          <a className="resource primary" href="/Meituan-Robotics-0.pdf?v=20261103">Technical Report ↗</a>
+          <a className="resource primary" href="https://arxiv.org/abs/2611.08577">Technical Report ↗</a>
         </div>
       </section>
 

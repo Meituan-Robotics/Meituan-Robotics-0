@@ -25,7 +25,7 @@ test("exports a self-contained GitHub Pages project site", async () => {
   assert.match(html, /\/Robotic-0\/assets\/vision-language-data-20261030\.svg/);
   assert.match(html, /\/Robotic-0\/assets\/embodied-agent-20261029\.svg/);
   assert.doesNotMatch(html, /system-overview|Rollback and CFG-DAgger|rollback-20261029\.svg/);
-  assert.match(html, /\/Robotic-0\/Meituan-Robotics-0\.pdf\?v=20261103/);
+  assert.match(html, /href="https:\/\/arxiv\.org\/abs\/2611\.08577"/);
   assert.match(html, /<strong>14\.63%<\/strong><span>RoboDojo avg\. SR<\/span>/);
   assert.match(html, /aria-label="SR 0\.70, PS 0\.90"/);
   assert.match(html, /CFG-DAgger/);
