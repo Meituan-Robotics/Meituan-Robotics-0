@@ -75,9 +75,9 @@
 
 ### RoboCasa365
 
-| Model | Score | Success rate (SR) |
-| :--- | ---: | ---: |
-| **Meituan-Robotics-0-RoboCasa365** | **29.03** | **28.33%** |
+| Model | Success rate (SR) |
+| :--- | ---: |
+| **Meituan-Robotics-0-RoboCasa365** | **55.0%** |
 
 ---
 
