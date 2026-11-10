@@ -11,7 +11,7 @@ import {
 
 const results = JSON.parse(await readFile(new URL("../data/archived-overview-results.json", import.meta.url), "utf8"));
 const currentResults = JSON.parse(await readFile(new URL("../data/project-results.json", import.meta.url), "utf8"));
-const overview = await readFile(new URL("../public/assets/main-overview-20260902.svg", import.meta.url), "utf8");
+const overview = await readFile(new URL("./fixtures/main-overview-20260902.svg", import.meta.url), "utf8");
 
 test("keeps benchmark sources and post-training protocols separate", () => {
   const results = currentResults;

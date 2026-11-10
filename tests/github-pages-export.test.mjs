@@ -91,7 +91,6 @@ test("exports a self-contained GitHub Pages project site", async () => {
     access(new URL("assets/embodied-agent-20261029.svg", output)),
     access(new URL("video/block-placement-full.mp4", output)),
     access(new URL("video/vla_demo_01_en.mp4", output)),
-    access(new URL("Meituan-Robotics-0.pdf", output)),
     access(new URL("github-pages.js", output)),
     access(new URL("figure-viewer.js", output)),
     access(new URL("robots.txt", output)),

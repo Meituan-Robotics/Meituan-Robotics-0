@@ -1,5 +1,4 @@
 import assert from "node:assert/strict";
-import { createHash } from "node:crypto";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
 
@@ -290,7 +289,7 @@ test("ships the latest PPT overview and preserves the other figure slots", async
 });
 
 test("preserves the archived generated overview results", async () => {
-  const overview = await readFile(new URL("../public/assets/main-overview-20260902.svg", import.meta.url), "utf8");
+  const overview = await readFile(new URL("./fixtures/main-overview-20260902.svg", import.meta.url), "utf8");
   const chart = overview.slice(overview.indexOf('<g id="robodojo-comparison"'));
   const bars = [...chart.matchAll(/<rect data-model="([^"]+)" data-score="([^"]+)"[^>]*y="([^"]+)"[^>]*height="([^"]+)"[^>]*fill="([^"]+)"/g)];
   assert.deepEqual(bars.map(([, model, score]) => [model, Number(score)]), [
@@ -309,11 +308,3 @@ test("preserves the archived generated overview results", async () => {
   assert.doesNotMatch(chart, /SimpleMem|KinRT|Hy-Embodied|14\.95|14\.07|9\.53/);
 });
 
-test("ships the exact revised technical report supplied for the November 3 update", async () => {
-  const report = await readFile(new URL("../public/Meituan-Robotics-0.pdf", import.meta.url));
-  assert.equal(report.subarray(0, 5).toString(), "%PDF-");
-  assert.equal(
-    createHash("sha256").update(report).digest("hex"),
-    "cf689b2f7b7efd06c06095a402d34651c8f3495c4613b2199dab74c2e11efc29",
-  );
-});

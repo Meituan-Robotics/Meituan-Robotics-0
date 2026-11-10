@@ -3,7 +3,7 @@ import { fileURLToPath, pathToFileURL } from "node:url";
 
 // The September artwork is archived; the live Overview is now a direct PPT export.
 const dataUrl = new URL("../data/archived-overview-results.json", import.meta.url);
-const overviewUrl = new URL("../public/assets/main-overview-20260902.svg", import.meta.url);
+const overviewUrl = new URL("../tests/fixtures/main-overview-20260902.svg", import.meta.url);
 export const startMarker = "  <!-- BEGIN GENERATED EVALUATION: data/project-results.json -->";
 export const endMarker = "  <!-- END GENERATED EVALUATION -->";
 const legacyStartMarker = "  <!-- Real-robot averages reported in Figure 10; HG-DAgger comparison. -->";

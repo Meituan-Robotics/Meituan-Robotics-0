@@ -28,7 +28,7 @@ for (const directory of ["_next", "assets", "video"]) {
   );
 }
 
-for (const file of ["Meituan-Robotics-0.pdf", "favicon.png", "og.png"]) {
+for (const file of ["favicon.png", "og.png"]) {
   html = html.replace(
     new RegExp(`(?<!${escapedBasePath})/${file.replaceAll(".", "\\.")}`, "g"),
     `${basePath}/${file}`,
