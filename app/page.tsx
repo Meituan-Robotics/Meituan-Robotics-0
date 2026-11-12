@@ -43,25 +43,34 @@ function VerticalBarChart({
   max,
   label,
   ticks,
+  barTopValues = false,
 }: {
   items: BarItem[];
   min?: number;
   max: number;
   label: string;
   ticks?: number[];
+  barTopValues?: boolean;
 }) {
   return (
-    <div className={`vertical-chart${ticks ? " has-scale" : ""}${items.length > 5 ? " dense-chart" : ""}`} role="group" aria-label={label}>
+    <div className={`vertical-chart${ticks ? " has-scale" : ""}${items.length > 5 ? " dense-chart" : ""}${barTopValues ? " bar-top-values" : ""}`} role="group" aria-label={label}>
       {ticks && <div className="vertical-scale" aria-hidden="true">
         {ticks.map((tick) => <span key={tick} style={{ bottom: `${(tick - min) / (max - min) * 100}%` }}><i>{tick}</i></span>)}
       </div>}
-      {items.map((item, index) => (
-        <div className={`vertical-column${item.highlight ? " highlight" : ""}`} key={item.label}>
-          <b>{item.display ?? item.value}</b>
-          <div className="vertical-track"><span style={{ height: `${Math.max(0, Math.min(100, (item.value - min) / (max - min) * 100))}%`, transitionDelay: `${index * 65}ms` }} /></div>
-          <span title={item.label}>{item.shortLabel ?? (item.label === "InternVLA-A1.5" ? <>InternVLA-<wbr />A1.5</> : item.label)}</span>
-        </div>
-      ))}
+      {items.map((item, index) => {
+        const height = `${Math.max(0, Math.min(100, (item.value - min) / (max - min) * 100))}%`;
+        const value = item.display ?? item.value;
+        return (
+          <div className={`vertical-column${item.highlight ? " highlight" : ""}`} key={item.label}>
+            {!barTopValues && <b>{value}</b>}
+            <div className="vertical-track">
+              <span style={{ height, transitionDelay: `${index * 65}ms` }} />
+              {barTopValues && <b className="vertical-bar-value" style={{ bottom: `calc(${height} + 5px)` }}>{value}</b>}
+            </div>
+            <span title={item.label}>{item.shortLabel ?? (item.label === "InternVLA-A1.5" ? <>InternVLA-<wbr />A1.5</> : item.label)}</span>
+          </div>
+        );
+      })}
     </div>
   );
 }
@@ -172,7 +181,7 @@ export default function Home() {
             and embodied-agent system for stationary-base desktop manipulation.
             It combines {results.data.visionLanguageSamples / 1_000_000} million vision-language samples with {number(results.data.robotHours)} hours of
             robot trajectories, then transfers these priors to continuous control
-            through a three-stage training recipe. {`The standalone policy reaches ${robotwinMR0.value}% success on RoboTwin 2.0. It achieves an average success rate of ${fixed(robodojoMR0.value)}% on RoboDojo, as reported in Table 5. `}
+            through a three-stage training recipe. {`The standalone policy reaches ${robotwinMR0.value}% success on RoboTwin 2.0. It achieves an average success rate of ${fixed(robodojoMR0.value)}% on RoboDojo. `}
             Real-world post-training uses demonstrations and human corrections;
             Rollback pairs replaced policy segments with corrective continuations
             for CFG-DAgger. The event-driven agent adds persistent task memory and
@@ -344,8 +353,8 @@ export default function Home() {
             <p>
               We evaluate MR0 on RoboTwin 2.0, RoboDojo, and three real-robot
               tasks: letter-block placement, garment folding, and Ethernet
-              insertion. The RoboDojo comparison retains the selected baselines
-              from Figure 1 and uses average success rates from Table 5.
+              insertion. The RoboDojo chart compares average success rates for
+              selected methods.
             </p>
           </div>
           <RevealOnView className="result-card-grid">
@@ -362,7 +371,7 @@ export default function Home() {
                 <div><span>Simulation · Average SR (%)</span><h4>RoboDojo</h4></div>
                 <strong>{`${fixed(robodojoMR0.value)}%`}</strong>
               </header>
-              <VerticalBarChart label="RoboDojo average success rate (%) comparison from Table 5, retaining the selected methods from Figure 1; not a complete leaderboard" min={results.robodojo.min} max={results.robodojo.max} ticks={[0, 15, 30]} items={results.robodojo.models.map((model) => ({ ...model, display: fixed(model.value) }))} />
+              <VerticalBarChart label="RoboDojo average success rate (%) for selected methods" min={results.robodojo.min} max={results.robodojo.max} ticks={[0, 10, 20, 30, 40]} items={results.robodojo.models.map((model) => ({ ...model, display: fixed(model.value) }))} barTopValues />
             </article>
 
             <article className="result-card">
