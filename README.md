@@ -62,10 +62,8 @@
 | Benchmark | Setting | Success Rate | Evaluation Protocol |
 | :--- | :--- | ---: | :--- |
 | RoboTwin2.0 | Clean / Random | **93.22% / 93.88%** | [Evaluation script](eval_scripts/eval_robotwin.sh) |
-| [RoboDojo](https://robodojo-benchmark.com/leaderboard?bench=sim) | Overall | **14.63%** | [XPolicyLab evaluation](https://github.com/XPolicyLab/XPolicyLab/tree/main/policy/Meituan_Robotics_0) |
+| [RoboDojo](https://robodojo-benchmark.com/leaderboard?bench=sim) | Overall | **15.73%** | [XPolicyLab evaluation](https://github.com/XPolicyLab/XPolicyLab/tree/main/policy/Meituan_Robotics_0) |
 | [RoboCasa365](https://robocasa.ai/leaderboard.html) | Overall | **55.0%** | [RoboCasa365 evaluation](https://github.com/linglingxiansen/robocasa365-eval) |
-
-The RoboDojo score is the equal-weight average of two complete evaluations of the same checkpoint.
 
 ---
 
