@@ -31,7 +31,7 @@ test("server-renders the Meituan-Robotics-0 project page", async () => {
   assert.match(html, /aria-label="View Event-driven agent at full size"/);
   assert.match(html, /<title>Meituan-Robotics-0<\/title>/i);
   assert.doesNotMatch(html, /LongCat Robotics Team/i);
-  assert.match(html, /main-overview-20261103\.svg\?v=20261103-paper/);
+  assert.match(html, /main-overview-20261103\.svg\?v=robodojo-walloss/);
   assert.doesNotMatch(html, /system-overview|Rollback and CFG-DAgger/);
   assert.match(html, />Overview</);
   assert.match(html, />Data</);

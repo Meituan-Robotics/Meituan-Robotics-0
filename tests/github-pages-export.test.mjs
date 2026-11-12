@@ -21,7 +21,7 @@ test("exports a self-contained GitHub Pages project site", async () => {
   assert.match(html, /name="robots" content="noindex, nofollow, nocache"/);
   assert.match(html, /\/Robotic-0\/_next\/static\/css\//);
   assert.match(html, /\/Robotic-0\/video\/vla_demo_01_en\.mp4/);
-  assert.match(html, /\/Robotic-0\/assets\/main-overview-20261103\.svg\?v=20261103-paper/);
+  assert.match(html, /\/Robotic-0\/assets\/main-overview-20261103\.svg\?v=robodojo-walloss/);
   assert.match(html, /\/Robotic-0\/assets\/vision-language-data-20261030\.svg/);
   assert.match(html, /\/Robotic-0\/assets\/embodied-agent-20261029\.svg/);
   assert.doesNotMatch(html, /system-overview|Rollback and CFG-DAgger|rollback-20261029\.svg/);
