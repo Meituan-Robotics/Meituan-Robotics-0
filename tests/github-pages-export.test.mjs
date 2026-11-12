@@ -26,7 +26,7 @@ test("exports a self-contained GitHub Pages project site", async () => {
   assert.match(html, /\/Robotic-0\/assets\/embodied-agent-20261029\.svg/);
   assert.doesNotMatch(html, /system-overview|Rollback and CFG-DAgger|rollback-20261029\.svg/);
   assert.match(html, /href="https:\/\/arxiv\.org\/abs\/2611\.08577"/);
-  assert.match(html, /<strong>14\.63%<\/strong><span>RoboDojo avg\. SR<\/span>/);
+  assert.match(html, /<strong>15\.73%<\/strong><span>RoboDojo avg\. SR<\/span>/);
   assert.match(html, /aria-label="SR 0\.70, PS 0\.90"/);
   assert.match(html, /CFG-DAgger/);
   assert.doesNotMatch(html, /14\.95|9\.53|0\.94|ranks? fourth|first place|SOTA Performance/i);
@@ -41,6 +41,7 @@ test("exports a self-contained GitHub Pages project site", async () => {
   assert.match(html, /GalaxeaVLA \(G0\.5\)/);
   assert.match(html, /Rex-M1 Preview/);
   assert.match(html, /Simate-beta/);
+  assert.match(html, /WALL-OSS-1\.0-lite/);
   assert.doesNotMatch(html, /SimpleMemVLA|KinRT|VLACT|Spatial Forcing/);
   assert.match(html, /<script src="\/Robotic-0\/github-pages\.js" defer><\/script>/);
   assert.match(html, /<script src="\/Robotic-0\/figure-viewer\.js" defer><\/script>/);

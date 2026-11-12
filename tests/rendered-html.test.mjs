@@ -23,8 +23,8 @@ test("server-renders the Meituan-Robotics-0 project page", async () => {
   const html = await response.text();
   const readableHtml = html.replace(/<!--[\s\S]*?-->/g, "");
   assert.match(readableHtml, /reaches 93\.6% success/);
-  assert.match(readableHtml, /an average success rate of 14\.63% on RoboDojo, as reported in Table 5\./);
-  assert.match(readableHtml, /Table 5\. Real-world/);
+  assert.match(readableHtml, /an average success rate of 15\.73% on RoboDojo\./);
+  assert.match(readableHtml, /RoboDojo\. Real-world/);
   assert.equal((html.match(/data-figure-zoom="true"|data-figure-zoom=""/g) ?? []).length, 3);
   assert.match(html, /aria-label="View System overview at full size"/);
   assert.match(html, /aria-label="View Vision-language data at full size"/);
@@ -52,10 +52,10 @@ test("server-renders the Meituan-Robotics-0 project page", async () => {
   assert.doesNotMatch(html, /Unified Action Representation|Model Architecture|action-flow/);
   assert.match(html, /training-timeline/);
   assert.doesNotMatch(html, /method-facts|stage-grid/);
-  assert.match(html, /<strong>14\.63%<\/strong><span>RoboDojo avg\. SR<\/span>/);
+  assert.match(html, /<strong>15\.73%<\/strong><span>RoboDojo avg\. SR<\/span>/);
   assert.match(html, /RoboTwin 2\.0/);
   assert.match(html, /RoboDojo/);
-  assert.match(html, /14\.63/);
+  assert.doesNotMatch(html, />14\.63%?</);
   assert.match(html, /Real Robot/);
   assert.match(html, /RECAP/);
   assert.doesNotMatch(html, /real-robot-results\.png|robotwin-results\.png/);
@@ -143,18 +143,21 @@ test("server-renders the Meituan-Robotics-0 project page", async () => {
   }
   const roboDojoCard = resultCards.find((card) => /<h4>RoboDojo<\/h4>/.test(card));
   assert.ok(roboDojoCard, "Missing RoboDojo model-comparison card");
-  for (const value of ["Hy-Embodied-0.5-VLA", "8.80", "MR0", "14.63", "Xiaomi-Robotics-1", "13.93", "GalaxeaVLA (G0.5)", "14.88", "DM0.5", "19.34", "Rex-M1 Preview", "27.44", "Simate-beta", "27.96"]) {
-    assert.ok(roboDojoCard.includes(value), `Missing selected RoboDojo model or Score ${value}`);
+  for (const value of ["Hy-Embodied-0.5-VLA", "8.80", "Xiaomi-Robotics-1", "13.93", "GalaxeaVLA (G0.5)", "14.88", "MR0", "15.73", "DM0.5", "19.34", "Rex-M1 Preview", "27.44", "Simate-beta", "27.96", "WALL-OSS-1.0-lite", "34.97"]) {
+    assert.ok(roboDojoCard.includes(value), `Missing selected RoboDojo model or success rate ${value}`);
   }
   assert.doesNotMatch(roboDojoCard, /Selected methods · scale/);
-  assert.match(roboDojoCard, /RoboDojo average success rate \(%\) comparison from Table 5, retaining the selected methods from Figure 1; not a complete leaderboard/);
-  assert.equal((roboDojoCard.match(/class="vertical-column/g) ?? []).length, 7);
+  assert.match(roboDojoCard, /RoboDojo average success rate \(%\) for selected methods/);
+  assert.deepEqual([...roboDojoCard.matchAll(/class="vertical-bar-value"[^>]*>([\d.]+)<\/b>/g)].map(([, value]) => value), [
+    "8.80", "13.93", "14.88", "15.73", "19.34", "27.44", "27.96", "34.97",
+  ]);
+  assert.deepEqual([...roboDojoCard.matchAll(/<i>(\d+)<\/i>/g)].map(([, tick]) => Number(tick)), [0, 10, 20, 30, 40]);
   assert.doesNotMatch(roboDojoCard, /scale 0–20/);
   assert.match(roboDojoCard, /vertical-column highlight/);
   assert.doesNotMatch(roboDojoCard, /VLACT|InternVLA|Spatial Forcing|SimpleMem|KinRT/);
   assert.match(roboDojoCard, /Average SR \(%\)/);
   assert.doesNotMatch(roboDojoCard, /Average Score|19\.68/);
-  assert.match(html, /The RoboDojo comparison retains the selected baselines from Figure 1 and uses average success rates from Table 5\./);
+  assert.match(html, /The RoboDojo chart compares average success rates for selected methods\./);
   assert.doesNotMatch(html, /initial-scene reference and latent-action history|without the embodied-agent system|using compact historical context/);
   assert.match(html, /CFG-DAgger compared with RECAP on Ethernet insertion using the same demonstrations and Rollback episodes/);
   assert.match(html, /RECAP: 0\.60/);
