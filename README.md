@@ -77,7 +77,20 @@ See the [Getting Started guide](GETTING_STARTED.md) for setup and runnable comma
 
 ## 📜 Citation and acknowledgements
 
-Technical report: [*Meituan-Robotics-0: A Vision-Language-Action Foundation Model for Desktop Manipulation*](https://arxiv.org/abs/2611.08577) (Meituan Robotics Team, 2026), arXiv:2611.08577.
+If you use Meituan-Robotics-0 in your research, please cite the [technical report](https://arxiv.org/abs/2611.08577):
+
+```bibtex
+@misc{meituanroboticsteam2026mr0,
+  author        = {{Meituan Robotics Team}},
+  title         = {{Meituan-Robotics-0}: A Vision-Language-Action Foundation Model for Desktop Manipulation},
+  year          = {2026},
+  eprint        = {2611.08577},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.RO},
+  doi           = {10.48550/arXiv.2611.08577},
+  url           = {https://arxiv.org/abs/2611.08577}
+}
+```
 
 MR0 builds on the StarVLA training and deployment stack. For the underlying software, see [CITATION.cff](CITATION.cff). We thank the [StarVLA](https://github.com/starVLA/starVLA), [Qwen](https://github.com/QwenLM), [RoboTwin](https://github.com/RoboTwin-Platform/RoboTwin), and [RoboDojo](https://github.com/RoboDojo-Benchmark/RoboDojo) communities.
 
