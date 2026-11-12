@@ -59,25 +59,14 @@
 
 ## 🎯 Simulation benchmarks
 
-### [RoboTwin2.0](https://robotwin-platform.github.io/leaderboard.html)
+| Benchmark | Setting | Success Rate |
+| :--- | :--- | ---: |
+| RoboTwin2.0 | Clean | **93.22%** |
+| RoboTwin2.0 | Randomized | **93.88%** |
+| [RoboDojo](https://robodojo-benchmark.com/leaderboard?bench=sim) | Average | **14.63%** |
+| [RoboCasa365](https://robocasa.ai/leaderboard.html) | — | **55.0%** |
 
-| Model | Success Rate (Clean) | Success Rate (Randomized) |
-| :--- | ---: | ---: |
-| **MR0-RoboTwin** | **93.22%** | **93.88%** |
-
-### [RoboDojo](https://robodojo-benchmark.com/leaderboard?bench=sim)
-
-| Model | Success Rate (Average) |
-| :--- | ---: |
-| **MR0** | **14.63%** |
-
-The score is the equal-weight average of two complete evaluations of the same checkpoint.
-
-### [RoboCasa365](https://robocasa.ai/leaderboard.html)
-
-| Model | Success Rate |
-| :--- | ---: |
-| **Meituan-Robotics-0-RoboCasa365** | **55.0%** |
+The RoboDojo score is the equal-weight average of two complete evaluations of the same checkpoint.
 
 ---
 
