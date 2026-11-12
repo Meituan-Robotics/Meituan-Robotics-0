@@ -30,7 +30,7 @@
 
 ## 🌟 Overview
 
-![MR0 overview: multimodal and robot data, staged policy training, embodied agents, and manipulation evaluation](assets/mr0/overview.png)
+![MR0 overview: multimodal and robot data, staged policy training, embodied agents, and manipulation evaluation](assets/mr0/overview.svg)
 
 | Learn representations | Transfer to control | Adapt to a task suite |
 | :--- | :--- | :--- |
@@ -59,23 +59,23 @@
 
 ## 🎯 Simulation benchmarks
 
-### RoboTwin
+### [RoboTwin2.0](https://robotwin-platform.github.io/leaderboard.html)
 
-**MR0-RoboTwin** is evaluated on **50 tasks × 100 episodes per task**, with unseen instructions:
-
-| Model | `demo_clean` SR | `demo_randomized` SR |
+| Model | Success Rate (Clean) | Success Rate (Randomized) |
 | :--- | ---: | ---: |
 | **MR0-RoboTwin** | **93.22%** | **93.88%** |
 
-### RoboDojo
+### [RoboDojo](https://robodojo-benchmark.com/leaderboard?bench=sim)
 
-| Reported model | Average success rate | Protocol |
-| :--- | ---: | :--- |
-| **MR0** | **14.63%** | Equal-weight average of two complete evaluations of the same checkpoint. |
+| Model | Success Rate (Average) |
+| :--- | ---: |
+| **MR0** | **14.63%** |
 
-### RoboCasa365
+The score is the equal-weight average of two complete evaluations of the same checkpoint.
 
-| Model | Success rate (SR) |
+### [RoboCasa365](https://robocasa.ai/leaderboard.html)
+
+| Model | Success Rate |
 | :--- | ---: |
 | **Meituan-Robotics-0-RoboCasa365** | **55.0%** |
 
